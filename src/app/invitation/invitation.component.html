@@ -1,0 +1,39 @@
+<div class="container">
+  <!-- <div class="row">
+    <div class="col-sm-12"> -->
+      <div class="panel panel-primary">
+        <div class="panel-heading">Invitation</div>
+        <div class="panel-body">
+          <form class="form-horizontal" #invitationForm="ngForm" (ngSubmit)="invitationForm.form.valid&&invite(invitationForm.value)">
+            <div class="form-group">
+              <label for="comment">To:</label>
+              <textarea name="emaiFields" class="form-control" rows="5" id="comment" [(ngModel)]="invitation.emailFields" #emailFields="ngModel" required></textarea>
+            </div>
+            <div class="form-group">
+              <label for="comment">Location:</label>
+              <select class="form-control" name="location" #location="ngModel" [(ngModel)]="invitation.location" required>
+                <option *ngFor="let loc of locations" [value]="loc.id">{{loc.name}}</option>
+              </select>
+              <div *ngIf="location.invalid && invitationForm.submitted && !isValidFormSubmitted" [ngClass] = "'alert alert-danger'"> 
+                  Location required. 
+                   </div>
+            </div>
+            <div class="form-group">
+              <!-- <div class="col-sm-offset-2 col-sm-10"> -->
+              <!-- <input type="file" id="myFile"> -->
+              <label for="fileInput">Logo Upload:</label>
+              <input #fileInput type="file" name="logo" (change)="handleFileSelect($event)" id="image" class="form-control" />
+              <!-- <button [{ngModel}]="invitation.logoFile" #logoFile="ngModel" onclick="imageUpload()">Upload Image</button> -->
+              <!-- </div> -->
+            </div>
+            <div class="form-group">
+              <!-- <div class="col-sm-offset-2 col-sm-10"> -->
+              <button type="submit" class="btn btn-primary text-center">Submit</button>
+              <!-- </div> -->
+            </div>
+          </form>
+        </div>
+      </div>
+    <!-- </div>
+  </div> -->
+</div>
